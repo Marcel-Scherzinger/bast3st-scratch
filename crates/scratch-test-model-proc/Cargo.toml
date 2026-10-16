@@ -1,0 +1,15 @@
+[package]
+name = "scratch-test-model-proc"
+version = "0.1.1"
+edition = "2024"
+homepage.workspace = true
+authors.workspace = true
+
+[dependencies]
+convert_case = "0.12.0"
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = {version = "3.0.9", features = ["full"]}
+
+[lib]
+proc-macro = true

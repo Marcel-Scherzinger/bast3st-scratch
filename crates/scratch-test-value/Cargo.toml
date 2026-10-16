@@ -1,0 +1,29 @@
+[package]
+name = "scratch-test-value"
+version = "0.1.1"
+edition = "2024"
+
+homepage.workspace = true
+authors.workspace = true
+description = "This defines Scratch values and how they behave on arithmethic, logical and other operations"
+documentation = "https://marcel-scherzinger.github.io/scratch-test-value"
+repository = "https://github.com/marcel-scherzinger/scratch-test-value"
+
+[dependencies]
+derive_more = { workspace = true, features = ["debug", "display"] }
+itertools.workspace = true
+thiserror.workspace = true
+
+serde_json = { workspace = true, optional = true }
+serde = { workspace = true, features = ["derive", "rc"], optional = true }
+schemars = { workspace = true, optional = true }
+utoipa = { workspace = true, features = ["rc_schema"], optional = true }
+
+[features]
+# replaces std::rc::Rc with std::sync::Arc so that values can be shared across threads
+thread-share = []
+serde_json = ["dep:serde_json"]
+serde = ["dep:serde"]
+schemars = ["dep:schemars"]
+utoipa = ["dep:utoipa"]
+

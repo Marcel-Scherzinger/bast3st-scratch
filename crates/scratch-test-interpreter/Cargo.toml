@@ -1,0 +1,34 @@
+[package]
+name = "scratch-test-interpreter"
+version = "0.1.1"
+edition = "2024"
+homepage.workspace = true
+authors.workspace = true
+
+[dependencies]
+either.workspace = true
+thiserror.workspace = true
+derive-getters.workspace = true
+
+rand = { version = "0.10.0", optional = true }
+serde = { workspace = true, features = ["derive", "rc"], optional = true }
+schemars = { workspace = true, optional = true }
+utoipa = { workspace = true, features = ["rc_schema"], optional = true }
+
+
+[dependencies.svalue]
+path = "../scratch-test-value"
+package = "scratch-test-value"
+default-features = false
+
+[dependencies.smodel]
+path = "../scratch-test-model"
+package = "scratch-test-model"
+default-features = false
+
+[features]
+default = ["rand"]
+rand = ["dep:rand"]
+serde = ["dep:serde", "smodel/serde"]
+schemars = ["dep:schemars", "smodel/schemars", "svalue/schemars"]
+utoipa = ["dep:utoipa", "smodel/utoipa", "svalue/utoipa"]
