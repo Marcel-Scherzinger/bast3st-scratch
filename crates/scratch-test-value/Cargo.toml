@@ -5,9 +5,9 @@ edition = "2024"
 
 homepage.workspace = true
 authors.workspace = true
+repository.workspace = true
 description = "This defines Scratch values and how they behave on arithmethic, logical and other operations"
-documentation = "https://marcel-scherzinger.github.io/scratch-test-value"
-repository = "https://github.com/marcel-scherzinger/scratch-test-value"
+documentation = "https://marcel-scherzinger.github.io/bast3st-scratch/scratch_test_value/"
 
 [dependencies]
 derive_more = { workspace = true, features = ["debug", "display"] }

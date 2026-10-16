@@ -11,6 +11,9 @@ members = [
 authors = ["Marcel Scherzinger"]
 description = "The part of the Bast3St project that is responsible for dealing with Scratch programs"
 homepage = "https://marcel-scherzinger.github.io/bast3st/"
+documentation = "https://marcel-scherzinger.github.io/bast3st-scratch/"
+version = "0.1.1"
+repository = "https://github.com/marcel-scherzinger/bast3st-scratch"
 
 [workspace.dependencies]
 itertools = "0.15"

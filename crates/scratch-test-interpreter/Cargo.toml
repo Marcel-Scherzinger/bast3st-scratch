@@ -3,7 +3,9 @@ name = "scratch-test-interpreter"
 version = "0.1.1"
 edition = "2024"
 homepage.workspace = true
+repository.workspace = true
 authors.workspace = true
+documentation = "https://marcel-scherzinger.github.io/bast3st-scratch/scratch_test_interpreter/"
 
 [dependencies]
 either.workspace = true
