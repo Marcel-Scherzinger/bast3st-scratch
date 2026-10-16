@@ -1,5 +1,6 @@
 # bast3st-scratch
 
+[![Repository](https://img.shields.io/badge/Repository-GitHub-blue?logo=github)](https://github.com/marcel-scherzinger/bast3st-scratch)
 [![Project page](https://img.shields.io/badge/Project-Bast3St-pink)](https://marcel-scherzinger.github.io/bast3st)
 [![100% Rust](https://img.shields.io/badge/Rust-100%25-32c955?logo=rust)](https://rust-lang.org)
 [![Reference on GitHub Pages](https://github.com/marcel-scherzinger/bast3st-scratch/actions/workflows/documentation.yml/badge.svg)](https://marcel-scherzinger.github.io/bast3st-scratch)
