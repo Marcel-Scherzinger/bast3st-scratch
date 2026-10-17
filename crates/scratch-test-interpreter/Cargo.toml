@@ -12,6 +12,7 @@ either.workspace = true
 thiserror.workspace = true
 derive-getters.workspace = true
 
+derive_more = { workspace = true, features = ["debug", "eq"] }
 rand = { version = "0.10.0", optional = true }
 serde = { workspace = true, features = ["derive", "rc"], optional = true }
 schemars = { workspace = true, optional = true }

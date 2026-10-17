@@ -87,22 +87,20 @@ impl DataEntry for ListKind {
     type Data = (List, Vec<SValue>);
     fn parse_entry(id: Id, def: &serde_json::Value) -> Option<(List, Vec<SValue>)> {
         let name = def[0].as_str()?.into();
-        let initial = if let Some(arr) = def[1].as_array() {
-            arr.iter()
-                .map(|element| {
-                    if let Some(number) = element.as_number().cloned().map(SValue::from) {
-                        return number;
-                    }
-                    let text = element
-                        .as_str()
-                        .map(|s| s.into())
-                        .unwrap_or_else(|| element.to_string().into());
-                    SValue::Text(text)
-                })
-                .collect()
-        } else {
-            return None;
-        };
+        let arr = def[1].as_array()?;
+        let initial = arr
+            .iter()
+            .map(|element| {
+                if let Some(number) = element.as_number().cloned().map(SValue::from) {
+                    return number;
+                }
+                let text = element
+                    .as_str()
+                    .map(|s| s.into())
+                    .unwrap_or_else(|| element.to_string().into());
+                SValue::Text(text)
+            })
+            .collect();
         Some((List::new(name, id), initial))
     }
 }

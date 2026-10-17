@@ -1,4 +1,6 @@
 use std::collections::{BTreeSet, HashMap};
+#[cfg(feature = "rand")]
+use std::fmt::Debug;
 
 use either::Either;
 #[cfg(feature = "rand")]
@@ -30,7 +32,7 @@ pub enum Action {
     },
 }
 
-#[derive(Debug, Default, PartialEq, derive_getters::Getters)]
+#[derive(derive_more::Debug, Default, derive_more::PartialEq, derive_getters::Getters)]
 pub struct DefaultState {
     /// All data (variable/list) identifiers which were
     /// used before initialized
@@ -52,7 +54,9 @@ pub struct DefaultState {
     answer_inputs: Vec<svalue::ARc<str>>,
 
     #[cfg(feature = "rand")]
-    randoms: Option<rand::rngs::StdRng>,
+    #[debug("randoms: ...")]
+    #[partial_eq(skip)]
+    randoms: Option<Box<dyn rand::Rng>>,
     predefined_randoms: Option<(svalue::ARc<[svalue::SNumber]>, usize)>,
 }
 
@@ -155,7 +159,7 @@ impl DefaultState {
     }
 
     #[cfg(feature = "rand")]
-    pub fn set_randoms(&mut self, rng: Option<rand::rngs::StdRng>) -> &mut Self {
+    pub fn set_randoms(&mut self, rng: Option<Box<dyn rand::Rng>>) -> &mut Self {
         self.randoms = rng;
         self
     }
